@@ -7,7 +7,7 @@ from bs4 import BeautifulSoup
 # Your Account SID from twilio.com/console
 account_sid = "AC8672ae56238820de18b0bdc80dfee2ee"
 # Your Auth Token from twilio.com/console
-auth_token  = "cb983873c2bd4854f2b12a737f9f005c"
+auth_token  = "819613a2de357c4da7cea746fee381e2"
 client = Client(account_sid, auth_token)
 
 response = requests.get('https://www.gov.mb.ca/health/')
