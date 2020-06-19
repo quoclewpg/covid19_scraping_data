@@ -4,3 +4,4 @@ django-heroku
 requests
 twilio
 bs4
+word2number
