@@ -34,9 +34,7 @@ if(number_of_cases > 1):
 else:
 	sms_body = date + ", Manitoba has " + cases + " new case"
 
-# message = client.messages.create(
-#     to="+12049156184", 
-#     from_="+12058989300",
-#     body="Hello, on " + sms_body)
-
-print(sms_body)
+message = client.messages.create(
+    to="+12049156184", 
+    from_="+12058989300",
+    body="Hello, on " + sms_body)
