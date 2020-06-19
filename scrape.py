@@ -3,6 +3,7 @@ import re
 
 from twilio.rest import Client
 from bs4 import BeautifulSoup
+from word2number import w2n
 
 # Your Account SID from twilio.com/console
 account_sid = "AC8672ae56238820de18b0bdc80dfee2ee"
@@ -26,9 +27,16 @@ for i in reversed(range(len(news)-2)):
 			match = re.search(r'(\S+) new', announcement)
 			if match:
 				cases = match.group(1)
-sms_body = date + ", Manitoba has " + cases + " new case(s)."
 
-message = client.messages.create(
-    to="+12049156184", 
-    from_="+12058989300",
-    body="Hello, on " + sms_body)
+number_of_cases = w2n.word_to_num(cases)
+if(number_of_cases > 1):
+	sms_body = date + ", Manitoba has " + cases + " new cases"
+else:
+	sms_body = date + ", Manitoba has " + cases + " new case"
+
+# message = client.messages.create(
+#     to="+12049156184", 
+#     from_="+12058989300",
+#     body="Hello, on " + sms_body)
+
+print(sms_body)
